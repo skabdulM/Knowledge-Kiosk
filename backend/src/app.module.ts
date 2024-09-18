@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TeacherModule } from './teacher/teacher.module';
 import { SubjectModule } from './subject/subject.module';
 import { ClassModule } from './class/class.module';
+import { StudentModule } from './student/student.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ClassModule } from './class/class.module';
     }),
     SubjectModule,
     ClassModule,
+    StudentModule,
   ],
   controllers: [],
   providers: [],
