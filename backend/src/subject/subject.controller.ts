@@ -3,7 +3,6 @@ import { SubjectService } from './subject.service';
 import { RolesGuard } from '../auth/guard/role.guard';
 import { GetUser, Roles } from '../auth/decorator';
 import { JwtGuard } from '../auth/guard';
-import { ProductDto } from '../dtos';
 import { AddSubject } from 'src/dtos/authDtos/addSubject.dto';
 
 @Controller('subject')

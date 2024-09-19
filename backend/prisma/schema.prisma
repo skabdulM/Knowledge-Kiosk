@@ -76,13 +76,13 @@ model Teacher {
 
 model Student {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
   email     String   @unique
   hash      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   phone     String?
   roles     Role     @default(STUDENT)
-  name      String
 
   // A student belongs to one class
   class   Class  @relation(fields: [classId], references: [id])
