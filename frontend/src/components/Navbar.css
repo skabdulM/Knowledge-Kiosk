@@ -1,4 +1,21 @@
-.navbar{
-    display: flex;
-    justify-content: space-between;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5em 0 5em;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.navbar ul li {
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.navbar ul li:hover {
+  text-decoration: underline;
 }

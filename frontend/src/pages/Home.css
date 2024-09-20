@@ -1,0 +1,26 @@
+/* Ensure body and html take full height */
+body,
+html {
+  height: 100%;
+}
+
+/* Parallax section */
+.parallax-section {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/105988/banner-foreground.png"); /* Replace with your image path */
+  height: 100vh; /* Full height of the viewport */
+  background-attachment: fixed; /* Parallax scrolling effect */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: ease-out 2s;
+}
+
+/* Content section for scrolling */
+.content-section {
+  height: 1000px;
+  background-color: red;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,26 +1,50 @@
+import React, { useState } from "react";
 import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-  } from "@ionic/react";
-  import ExploreContainer from "../components/ExploreContainer";
-import Navbar from "../components/Navbar";
-  
-  const Home: React.FC = () => {
-    return (
-      <IonPage>
-        <IonContent fullscreen>
-          <Navbar />
-          dwal Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Perferendis esse ut delectus veritatis vel quos accusantium, enim
-          laborum aspernatur quas officiis mollitia dicta, cum sed blanditiis
-          officia omnis sit quod illo earum eos reiciendis aut facilis suscipit.
-          Ipsam, quia.
-        </IonContent>
-      </IonPage>
-    );
+  IonPage,
+  IonContent,
+  IonImg,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import Navbar from "../components/Navbar"; // Assuming Navbar is a separate component
+import "./Home.css"; // External CSS for styling
+import {
+  Parallax,
+  ParallaxBanner,
+  ParallaxBannerLayer,
+  ParallaxProvider,
+} from "react-scroll-parallax";
+import { AdvancedBannerTop } from "../components/AdvancedPrallax";
+
+const Home: React.FC = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = (event: CustomEvent) => {
+    const scrollTop = event.detail.scrollTop;
+    setScrollY(scrollTop);
   };
-  
-  export default Home;
+
+  return (
+    <IonPage>
+      <IonContent>
+        <Navbar />
+        <div>
+          {/* First parallax section */}
+          <section className="parallax-section"></section>
+
+          {/* Content section for scrolling */}
+          <div className="content-section">
+            Scroll Up and Down this page to see the parallax scrolling effect.
+            This div is just here to enable scrolling.
+          </div>
+
+          {/* Second parallax section */}
+          <section className="parallax-section"></section>
+        </div>
+      </IonContent>
+    </IonPage>
+  );
+};
+
+export default Home;
