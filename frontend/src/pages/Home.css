@@ -1,18 +1,71 @@
 .parallax-section {
   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/105988/banner-foreground.png"); /* Replace with your image path */
   height: 100vh; /* Full height of the viewport */
-  background-attachment: fixed; /* Parallax scrolling effect */
+  background-attachment:unset; /* Parallax scrolling effect */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 /* Content section for scrolling */
-.content-section {
-  height: 1000px;
+/* .content-section {
+  height: 200px;
   background-color: red;
   font-size: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
+/* Get Started Section Styling */
+.get-started-section {
+    padding: 50px;
+    text-align: center;
+    background-color: white
+    ; /* Green background */
+    color: white;
+  }
+  
+  .get-started-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .get-started-section p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .get-started-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #0069d9;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .get-started-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  /* Styling the grid */
+.custom-grid {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Force equal height on all cards */
+  .custom-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 5rem; /* Set minimum height to 5rem */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+  }
+  
+  .custom-card ion-card-content {
+    flex-grow: 1; /* Ensure the content fills remaining space */
+  }
