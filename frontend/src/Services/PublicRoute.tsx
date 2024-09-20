@@ -2,17 +2,25 @@ import { Route, Redirect } from "react-router-dom";
 import { useAuth } from "./UseContext";
 
 const PublicRoute = ({ component: Component, restricted, ...rest }: any) => {
-  const { isAuthenticated } = useAuth();
-
+  const { isAuthenticated, isRole } = useAuth();
+  const getRedirectPath = (role: any) => {
+    switch (role) {
+      case "ADMIN":
+        return "/admin";
+      case "TEACHER":
+        return "/teacher";
+      case "STUDENT":
+        return "/student";
+      default:
+        return "/login"; // Fallback in case role is missing or invalid
+    }
+  };
   return (
-    // restricted = false meaning public route
-    // restricted = true meaning restricted route
-
     <Route
       {...rest}
       render={(props) =>
         isAuthenticated && restricted ? (
-          <Redirect to="/account" />
+          <Redirect to={getRedirectPath(isRole)} />
         ) : (
           <Component {...props} />
         )

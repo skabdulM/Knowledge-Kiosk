@@ -51,6 +51,13 @@ import "./theme/variables.css";
 import Home from "./pages/Home";
 import { AuthProvider } from "./Services/UseContext";
 import Login from "./pages/Login";
+import PrivateRoute from "./Services/privateRoute";
+import PublicRoute from "./Services/PublicRoute";
+import Admin from "./pages/Admin";
+import Student from "./pages/Student";
+import Teacher from "./pages/Teacher";
+import Help from "./pages/Help";
+import Contact from "./pages/Contact";
 
 setupIonicReact();
 
@@ -61,20 +68,17 @@ const App: React.FC = () => (
         <IonRouterOutlet>
           <Redirect exact path="/" to="/home" />
           <Route path="/home" render={() => <Home />} exact={true} />
-          <Route path="/login" render={() => <Login />} exact={true} />
-          {/* <PrivateRoute component={Account} path="/account" exact />
-              <PublicRoute
-                restricted={true}
-                component={Login}
-                path="/account/login"
-                exact
-              />
-              <PublicRoute
-                restricted={true}
-                component={RegisterPage}
-                path="/account/register"
-                exact
-              /> */}
+          <Route path="/help" render={() => <Help />} exact={true} />
+          <Route path="/contact" render={() => <Contact />} exact={true} />
+          <PrivateRoute component={Admin} path="/admin" exact />
+          <PrivateRoute component={Teacher} path="/teacher" exact />
+          <PrivateRoute component={Student} path="/student" exact />
+          <PublicRoute
+            restricted={true}
+            component={Login}
+            path="/login"
+            exact
+          />
         </IonRouterOutlet>
       </IonReactRouter>
     </AuthProvider>

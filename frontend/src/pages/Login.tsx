@@ -12,6 +12,8 @@ import {
   IonList,
   IonPage,
   IonRow,
+  IonSelect,
+  IonSelectOption,
   IonText,
   IonTitle,
   IonToolbar,
@@ -27,6 +29,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import { User } from "../Constants/interfaces";
+import Navbar from "../components/Navbar";
 
 const LoginSchema = yup.object({
   email: yup
@@ -46,6 +49,10 @@ const LoginSchema = yup.object({
     )
     .min(8, "Min password length is 8")
     .max(15, "Max password length is 15"),
+  role: yup
+    .string()
+    .required("Please select your role")
+    .oneOf(["ADMIN", "STUDENT", "TEACHER"], "Invalid role selected"),
 });
 
 const Login: React.FC = () => {
@@ -62,9 +69,11 @@ const Login: React.FC = () => {
   } = useForm({
     resolver: yupResolver(LoginSchema),
   });
+
   const changeVisibility = () => {
     setShowPassword(!showPassword);
   };
+
   const doLogin = async (data: User) => {
     //BUG  : RETURS ONLY ERROR OBJECT THEREFORE ERROR OCCURS ON SUCCESSFUL LOGIN
     const login: any = await loginUser(data);
@@ -83,14 +92,7 @@ const Login: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader translucent={true}>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/home" />
-          </IonButtons>
-          <IonTitle>Login</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Navbar />
       <IonContent fullscreen>
         <IonGrid>
           <IonList style={{ background: "none" }}>
@@ -118,6 +120,7 @@ const Login: React.FC = () => {
                   />
                 </IonCol>
               </IonRow>
+
               <IonRow className="ion-justify-content-center">
                 <IonCol
                   size-md="6"
@@ -158,9 +161,25 @@ const Login: React.FC = () => {
                     name="password"
                     as={<div className="error-messages" />}
                   />
-                  <IonText className="ion-padding-end forgot-password">
-                    Forgot Password ?
-                  </IonText>
+                </IonCol>
+              </IonRow>
+              <IonRow className="ion-justify-content-center">
+                <IonCol size-md="6" size-lg="5" size-xs="12">
+                  <IonItem lines="none">
+                    <IonSelect
+                      {...register("role")}
+                      label="Select Login"
+                      className="ion-margin-top"
+                      name="role"
+                      fill="outline"
+                      labelPlacement="floating"
+                      interface="popover"
+                    >
+                      <IonSelectOption value="STUDENT">Student</IonSelectOption>
+                      <IonSelectOption value="ADMIN">Admin</IonSelectOption>
+                      <IonSelectOption value="TEACHER">Teacher</IonSelectOption>
+                    </IonSelect>
+                  </IonItem>
                 </IonCol>
               </IonRow>
               <IonRow className="ion-justify-content-center">
@@ -178,12 +197,6 @@ const Login: React.FC = () => {
                   >
                     Login
                   </IonButton>
-                  <IonText
-                    className="ion-padding-end forgot-password"
-                    onClick={() => navigate.push("/account/register")}
-                  >
-                    Create New Account
-                  </IonText>
                 </IonCol>
               </IonRow>
             </form>

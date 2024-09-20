@@ -19,3 +19,7 @@
 .navbar ul li:hover {
   text-decoration: underline;
 }
+.navlist {
+  display: flex;
+  align-items: center;
+}
