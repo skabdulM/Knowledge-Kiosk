@@ -10,11 +10,32 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { cart, ellipse, happy, search, square, storefront, triangle } from 'ionicons/icons';
+// import Tab1 from './pages/Tab1';
+// import Tab2 from './pages/Tab2';
+// import Tab3 from './pages/Tab3';
+// <IonTabs>
+// <IonTabBar slot="bottom">
+//            <IonTabButton tab="home" href="/home">
+//              <IonIcon aria-hidden="true" icon={storefront} />
+//              <IonLabel>Home</IonLabel>
+//            </IonTabButton>
 
+//            <IonTabButton tab="search" href="/search">
+//              <IonIcon aria-hidden="true" icon={search} />
+//              <IonLabel>Search</IonLabel>
+//            </IonTabButton>
+//            <IonTabButton tab="cart" href="/cart">
+//              <IonIcon aria-hidden="true" icon={cart} />
+//              <IonLabel>Cart</IonLabel>
+//            </IonTabButton>
+//            <IonTabButton tab="account" href="/account">
+//              <IonIcon aria-hidden="true" icon={happy} />
+//              {/* <IonBadge color="primary">12</IonBadge> */}
+//              <IonLabel>Account </IonLabel>
+//            </IonTabButton>
+//          </IonTabBar>
+//        </IonTabs>
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -44,43 +65,35 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Home from './pages/Home';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/tab1" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
+    {/* <AuthProvider> */}
+        <IonReactRouter>
+            <IonRouterOutlet>
+              <Redirect exact path="/" to="/home" />
+              <Route path="/home" render={() => <Home />} exact={true} />
+              {/* <PrivateRoute component={Account} path="/account" exact />
+              <PublicRoute
+                restricted={true}
+                component={Login}
+                path="/account/login"
+                exact
+              />
+              <PublicRoute
+                restricted={true}
+                component={RegisterPage}
+                path="/account/register"
+                exact
+              /> */}
+            </IonRouterOutlet>
+
+         
+        </IonReactRouter>
+      {/* </AuthProvider> */}
   </IonApp>
 );
 
