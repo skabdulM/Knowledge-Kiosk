@@ -1,0 +1,55 @@
+.logo-conainer {
+
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+/* .BgImage {
+    --background: none;
+    background-image: url('https://nis.consulting/wp-content/uploads/2016/10/24_Contact-Us-Header_Background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+  } */
+  /* :host {
+    .background-image {
+      background: url('https://nis.consulting/wp-content/uploads/2016/10/24_Contact-Us-Header_Background.jpg') no-repeat 100% 100%;
+    }
+  } */
+  .contact-container {
+    color: white; 
+    background-image: url('https://nis.consulting/wp-content/uploads/2016/10/24_Contact-Us-Header_Background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+  }
+  .contact-container ion-breadcrumb,
+.contact-container ion-label {
+  color: white;
+}
+.contact-container ion-icon {
+    color: white; /* Set the color of the icons to white */
+  }
+  /* .txtclr{
+    text-decoration-color:white;
+  } */
+  .contact-container {
+    padding-left: 20%; /* Adjust this value as needed */
+    padding-right: 20px; /* Optionally, add padding on the right for balance */
+    padding-top: 10px;   /* Optional: control the top padding */
+    padding-bottom: 10px; 
+  /* Optional: control the bottom padding */
+  }
+  .contact-container .breadcrumbs {
+    padding-left: 30px; /* Custom padding for breadcrumbs */
+  }
+  
+  .contact-container ion-label {
+    padding-left: 15px; /* Custom padding for IonLabel */
+  }
+    
+  

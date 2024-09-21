@@ -2,3 +2,20 @@
   font-size: smaller;
   cursor: pointer;
 }
+/* Login.css */
+
+form {
+  /* background: rgba(255, 255, 255, 0.8); Adding a semi-transparent background for better readability */
+  padding: 20px;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); Optional: Adds a shadow to the form */
+}
+  .login-image-container {
+    text-align: center;
+  }
+  
+  .login-image {
+    width: 100px;
+    height: 100px;
+  }
+  
