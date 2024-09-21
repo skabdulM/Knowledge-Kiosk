@@ -14,6 +14,7 @@ import {
   bagHandle,
   eye,
   personCircleOutline,
+  school,
 } from "ionicons/icons";
 import "./Navbar.css";
 import { Link, Redirect, Route } from "react-router-dom";
@@ -35,7 +36,10 @@ const Navbar: React.FC = () => {
     <IonHeader translucent={true}>
       <IonToolbar>
         <div className="navbar">
-          <div>Knowledge-Kiosk</div>
+          <div className="icon">
+            <IonIcon icon={school} size="large" slot="icon-only"></IonIcon>
+            <b>Knowledge-Kioski</b>
+          </div>
           <div>
             <ul>
               <IonList className="navlist">
