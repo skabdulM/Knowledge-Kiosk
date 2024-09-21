@@ -1,5 +1,7 @@
 import {
   IonBackButton,
+  IonBreadcrumb,
+  IonBreadcrumbs,
   IonButton,
   IonButtons,
   IonCol,
@@ -21,7 +23,7 @@ import {
   useIonRouter,
 } from "@ionic/react";
 import "./Login.css";
-import { eye, eyeOff } from "ionicons/icons";
+import { arrowForwardCircle, eye, eyeOff } from "ionicons/icons";
 import { useState } from "react";
 import { useAuth } from "../Services/UseContext";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -93,9 +95,31 @@ const Login: React.FC = () => {
   return (
     <IonPage>
       <Navbar />
+      <IonBreadcrumbs>
+        <IonBreadcrumb href="#home">
+          Home
+          <IonIcon slot="separator" icon={arrowForwardCircle}></IonIcon>
+        </IonBreadcrumb>
+        <IonBreadcrumb>
+          Help
+          <IonIcon slot="separator" icon={arrowForwardCircle}></IonIcon>
+        </IonBreadcrumb>
+        <IonBreadcrumb>
+          Contact
+          <IonIcon slot="separator" icon={arrowForwardCircle}></IonIcon>
+        </IonBreadcrumb>
+        <IonBreadcrumb active>
+          Login
+          <IonIcon slot="separator" icon={arrowForwardCircle}></IonIcon>
+        </IonBreadcrumb>
+      </IonBreadcrumbs>
+
       <IonContent fullscreen>
+        <div className="login-image-container">
+          <img className="login-image" src="https://cdn1.iconfinder.com/data/icons/elevator/154/elevator-user-man-ui-round-login-1024.png" />
+        </div>
         <IonGrid>
-          <IonList style={{ background: "none" }}>
+          <IonList style={{ background: "none" }} no-border>
             <form onSubmit={handleSubmit(doLogin)}>
               <IonRow className="ion-justify-content-center">
                 <IonCol size-md="6" size-lg="5" size-xs="12">
@@ -163,6 +187,7 @@ const Login: React.FC = () => {
                   />
                 </IonCol>
               </IonRow>
+
               <IonRow className="ion-justify-content-center">
                 <IonCol size-md="6" size-lg="5" size-xs="12">
                   <IonItem lines="none">
@@ -182,6 +207,7 @@ const Login: React.FC = () => {
                   </IonItem>
                 </IonCol>
               </IonRow>
+
               <IonRow className="ion-justify-content-center">
                 <IonCol
                   className="ion-text-end"
