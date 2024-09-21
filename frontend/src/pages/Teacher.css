@@ -1,0 +1,19 @@
+.dashboard-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+  }
+  .card-image {
+    max-width: 3000px;
+    height:200px;
+  }
+  
+  .card-title {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
