@@ -66,9 +66,7 @@ const Home: React.FC = () => {
           </section>
 
           {/* Content section for scrolling */}
-          <div className="content-section">
-
-          </div>
+          <div className="content-section"></div>
 
           {/* Second parallax section */}
           <section className="3">

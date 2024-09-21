@@ -21,4 +21,11 @@ export class ClassService {
       throw error;
     }
   }
+  async getClass() {
+    try {
+      return await this.prisma.class.findMany();
+    } catch (error) {
+      throw error;
+    }
+  }
 }

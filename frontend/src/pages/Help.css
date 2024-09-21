@@ -1,0 +1,11 @@
+.img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover; /* Ensures the image is scaled while maintaining its aspect ratio */
+    margin-left: 10px; /* Add some space between the text and image */
+  }
+
+  .faq-container {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+  }
