@@ -37,8 +37,11 @@ const Admin: React.FC = () => {
   const modal = useRef<HTMLIonModalElement>(null);
   const [presentingElement, setPresentingElement] =
     useState<HTMLElement | null>(null);
-
+  const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
+  const [selectedTeacher, setSelectedTeacher] = useState<string | null>(null);
   const [classes, setClass] = useState([]);
+  const [teachers, setTeachers] = useState([]);
+  const [subjects, setSubjects] = useState([]);
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
   const [subjectName, setSubjectName] = useState<string>("");
@@ -58,10 +61,17 @@ const Admin: React.FC = () => {
   const getClasses = async () => {
     const url = ServerUrl + "class/listclass";
     const subs = await axios.get(url);
-    console.log(subs);
+    const urlTeacher = ServerUrl + "teacher/listteacher";
+    const teachers = await axios.get(urlTeacher);
+    const urlSub = ServerUrl + "subject/listSubjects";
+    const subject = await axios.get(urlSub);
+
+    setSubjects(subject.data);
+    console.log(subjects);
+    setTeachers(teachers.data);
     setClass(subs.data);
   };
-  // Function to handle form submission
+
   const addTeacher = async (data: any) => {
     const { values } = data.detail;
     if (data.detail) {
@@ -82,7 +92,28 @@ const Admin: React.FC = () => {
   function dismiss() {
     modal.current?.dismiss();
   }
-
+  const handleAssign = async () => {
+    if (!selectedSubject || !selectedTeacher) {
+      alert("Please fill all the fields");
+      return;
+    }
+    const formData = {
+      subjectId: selectedSubject,
+      teacherId: selectedTeacher,
+    };
+    try {
+      const url = ServerUrl + "teacher/assignteacher";
+      const access_token = Cookies.get("access_token");
+      const response = await axios.put(url, formData, {
+        headers: { Authorization: `Bearer ${access_token}` },
+      });
+      console.log(response);
+      setSelectedTeacher(null);
+      setSelectedSubject("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleSubmit = async () => {
     if (!selectedClass || !subjectName || !subjectDesc) {
       alert("Please fill all the fields");
@@ -104,7 +135,6 @@ const Admin: React.FC = () => {
         headers: { Authorization: `Bearer ${access_token}` },
       });
       console.log(response);
-
       setSelectedClass(null);
       setSubjectName("");
       setSelectedYear(null);
@@ -281,32 +311,56 @@ const Admin: React.FC = () => {
             </p>
           </IonCardContent>
         </IonCard>
-        <IonAlert
-          trigger="assignSubject"
-          header="Please enter your info"
-          buttons={["OK"]}
-          inputs={[
-            {
-              placeholder: "Name",
-            },
-            {
-              placeholder: "Nickname (max 8 characters)",
-              attributes: {
-                maxlength: 8,
-              },
-            },
-            {
-              type: "number",
-              placeholder: "Age",
-              min: 1,
-              max: 100,
-            },
-            {
-              type: "textarea",
-              placeholder: "A little about yourself",
-            },
-          ]}
-        ></IonAlert>
+        <IonModal ref={modal} trigger="assignSubject">
+          <IonHeader>
+            <IonToolbar>
+              <IonTitle>Assign Subject to teacher</IonTitle>
+              <IonButtons slot="end">
+                <IonButton
+                  onClick={() => {
+                    dismiss();
+                    handleAssign();
+                  }}
+                >
+                  Submit
+                </IonButton>
+              </IonButtons>
+            </IonToolbar>
+          </IonHeader>
+          <IonContent className="ion-padding">
+            <IonList>
+              <IonItem>
+                <IonLabel position="stacked">Select Subject</IonLabel>
+                <IonSelect
+                  placeholder="Select Subject"
+                  value={selectedSubject}
+                  onIonChange={(e) => setSelectedSubject(e.detail.value)}
+                >
+                  {subjects.map((subject: any, subjectIndex) => (
+                    <IonSelectOption key={subjectIndex} value={subject.id}>
+                      {subject.name}
+                    </IonSelectOption>
+                  ))}
+                </IonSelect>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="stacked">Select Teacher</IonLabel>
+                <IonSelect
+                  placeholder="Select Teacher"
+                  value={selectedTeacher}
+                  onIonChange={(e) => setSelectedTeacher(e.detail.value)}
+                >
+                  {teachers.map((teacher: any, teacherIndex) => (
+                    <IonSelectOption key={teacherIndex} value={teacher.id}>
+                      {teacher.name}
+                    </IonSelectOption>
+                  ))}
+                </IonSelect>
+              </IonItem>
+            </IonList>
+          </IonContent>
+        </IonModal>
       </IonContent>
     </IonPage>
   );

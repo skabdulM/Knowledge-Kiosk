@@ -17,4 +17,7 @@ export class SubjectService {
     });
     return subject;
   }
+  async listSubjects() {
+    return await this.prisma.subject.findMany();
+  }
 }

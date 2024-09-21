@@ -60,4 +60,12 @@ export class TeacherService {
       throw error;
     }
   }
+
+  async listTeacher() {
+    try {
+      return await this.prisma.teacher.findMany();
+    } catch (error) {
+      return error;
+    }
+  }
 }

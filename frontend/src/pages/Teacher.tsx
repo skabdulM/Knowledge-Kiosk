@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import assign from "../assets/assign.png";
-import class_schedule from "../assets/class_schedule.jpg";
-import exam from "../assets/exam.jpg";
+import assign from "../../public/assign.png";
+import class_schedule from "../../public/class_schedule.jpg";
+import exam from "../../public/exam.jpg";
 import {
   IonPage,
   IonContent,
@@ -76,7 +76,6 @@ const Teacher: React.FC = () => {
         <div>
           <IonGrid>
             <IonRow className="ion-justify-content-center">
-              {/* Add Student Card */}
               <IonCol size="5" size-md="2">
                 <IonCard className="dashboard-card">
                   <img
