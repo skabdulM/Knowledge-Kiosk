@@ -17,14 +17,6 @@ import {
 } from "@ionic/react";
 import Navbar from "../components/Navbar"; // Assuming Navbar is a separate component
 import "./Home.css"; // External CSS for styling
-import {
-  Parallax,
-  ParallaxBanner,
-  ParallaxBannerLayer,
-  ParallaxProvider,
-} from "react-scroll-parallax";
-import { AdvancedBannerTop } from "../components/AdvancedPrallax";
-import { image } from "ionicons/icons";
 
 const Home: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -33,7 +25,48 @@ const Home: React.FC = () => {
     const scrollTop = event.detail.scrollTop;
     setScrollY(scrollTop);
   };
-  const cards = [{ name: "Report generation", description: "card desc", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU" }, { name: "card 1", description: "card desc", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU" }, { name: "card 1", description: "card desc", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU" }, { name: "card 1", description: "card desc", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU" }, { name: "card 1", description: "card desc", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU" }, { name: "fee recipt", description: "card desc", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU" }, { name: "card 1", description: "card desc", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU" }, { name: "events  1", description: "card desc", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU" }]
+  const cards = [
+    {
+      name: "Report generation",
+      description: "card desc",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU",
+    },
+    {
+      name: "card 1",
+      description: "card desc",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU",
+    },
+    {
+      name: "card 1",
+      description: "card desc",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU",
+    },
+    {
+      name: "card 1",
+      description: "card desc",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU",
+    },
+    {
+      name: "card 1",
+      description: "card desc",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU",
+    },
+    {
+      name: "fee recipt",
+      description: "card desc",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU",
+    },
+    {
+      name: "card 1",
+      description: "card desc",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU",
+    },
+    {
+      name: "events  1",
+      description: "card desc",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwkShLbqYSTnT8SemNHJWZzuNuXdrSupU-N0rZpJ9PvbfhHL8SFZzQ0gVAL0XjZUgZSnI&usqp=CAU",
+    },
+  ];
 
   return (
     <IonPage>
@@ -46,18 +79,16 @@ const Home: React.FC = () => {
             <div className="get-started-section">
               <h2>Get Started</h2>
               <p>
-                Ready to dive in? Click the button below to get started with our awesome
-                features. You can learn more about our projects, achievements, and how you
-                can collaborate with us!
+                Ready to dive in? Click the button below to get started with our
+                awesome features. You can learn more about our projects,
+                achievements, and how you can collaborate with us!
               </p>
               <button className="get-started-button">Get Started</button>
             </div>
           </section>
 
           {/* Content section for scrolling */}
-          <div className="content-section">
-
-          </div>
+          <div className="content-section"></div>
 
           {/* Second parallax section */}
           <section className="3">
@@ -67,15 +98,18 @@ const Home: React.FC = () => {
                 {cards.map((cardNumber, i) => (
                   <IonCol size="12" size-md="4" key={i}>
                     <IonCard className="themed-card">
-                      <img
+                      <IonImg
                         alt="Silhouette of mountains"
                         src={cardNumber.img}
                       />
                       <IonCardHeader>
-                        <IonCardTitle>Custom Card Title {cardNumber.name}</IonCardTitle>
+                        <IonCardTitle>
+                          Custom Card Title {cardNumber.name}
+                        </IonCardTitle>
                       </IonCardHeader>
                       <IonCardContent>
-                        Here's a small text description for the custom themed card {cardNumber.description}.
+                        Here's a small text description for the custom themed
+                        card {cardNumber.description}.
                       </IonCardContent>
                     </IonCard>
                   </IonCol>

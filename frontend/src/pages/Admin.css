@@ -1,0 +1,22 @@
+.teacher-card-light {
+  background-color: #e3f2fd;
+  border-left: 5px solid #90caf9;
+  box-shadow: 0 4px 8px rgba(144, 202, 249, 0.2);
+  border-radius: 8px;
+}
+.subject-card-light {
+  background-color: #e8f5e9;
+  border-left: 5px solid #a5d6a7;
+  box-shadow: 0 4px 8px rgba(165, 214, 167, 0.2);
+  border-radius: 8px;
+}
+.assign-card-light {
+  background-color: #fff8e1;
+  border-left: 5px solid #ffecb3;
+  box-shadow: 0 4px 8px rgba(255, 236, 179, 0.2);
+  border-radius: 8px;
+}
+
+.centered-row {
+  justify-content: center; /* Centers the content of this row */
+}
