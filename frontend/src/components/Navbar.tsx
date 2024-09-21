@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
         <div className="navbar">
           <div className="icon">
             <IonIcon icon={school} size="large" slot="icon-only"></IonIcon>
-            <b>Knowledge-Kioski</b>
+            <b>Knowledge-Kiosk</b>
           </div>
           <div>
             <ul>
